@@ -40,4 +40,10 @@ public class Values {
 
     /* SWAGGER_UI_ENDPOINT Constant */
     public static final String SWAGGER_UI_ENDPOINT = "/swagger-ui/index.html";
+
+    public static final String NAME_REGEX = "[A-Z][a-zA-Z ]+";
+
+    public static final String FIRST_NAME_ERR_MSG_1 = "First Name must not be null";
+
+    public static final String FIRST_NAME_ERR_MSG_2 = "First Name is Invalid";
 }
