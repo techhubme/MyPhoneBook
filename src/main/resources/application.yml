@@ -9,6 +9,9 @@ spring:
   # Application Configuration
   application:
     name: MyPhoneBook
+  mvc:
+    servlet:
+      load-on-startup: 1
 
   # Data Source and JPA Configuration
   datasource:

@@ -1,7 +1,6 @@
 package com.phonebook.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.ThreadContext;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -60,7 +59,7 @@ public final class LogUtils {
      * Sets the logger pattern's context placeholder values
      */
     public static void setLogThreadContext() {
-        ThreadContext.put("host.name", HOST_NAME);
-        ThreadContext.put("host.ip", HOST_IP);
+        System.setProperty("my.phone.book.app.host.name", HOST_NAME);
+        System.setProperty("my.phone.book.app.host.ip", HOST_IP);
     }
 }

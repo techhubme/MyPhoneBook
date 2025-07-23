@@ -2,7 +2,6 @@ package com.phonebook.util;
 
 import com.phonebook.config.Values;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 /**
  * Application utility class
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @author Ram Niwash
  * @since 1.0.0
  */
-@Component
 @Slf4j
 public final class AppUtils {
 
