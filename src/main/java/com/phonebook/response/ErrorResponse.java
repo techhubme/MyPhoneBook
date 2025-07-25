@@ -1,5 +1,6 @@
 package com.phonebook.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,8 +17,9 @@ import java.util.Map;
 @Builder
 @Getter
 @ToString
-@EqualsAndHashCode
-public class ErrorResponse implements PhoneBookResponse{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ErrorResponse implements PhoneBookResponse {
 
-    private Map<String,String> errors;
- }
+    private String errorMessage;
+    private Map<String, String> fieldsError;
+}

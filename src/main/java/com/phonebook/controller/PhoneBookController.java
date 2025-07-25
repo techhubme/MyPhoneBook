@@ -7,6 +7,7 @@ import com.phonebook.response.SuccessResponse;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -24,7 +25,6 @@ import java.util.Map;
  * @since 1.0.0
  */
 @Slf4j
-@Validated
 @RestController
 @RequestMapping(value = "/contact")
 public class PhoneBookController {
@@ -33,22 +33,24 @@ public class PhoneBookController {
      * Add a new contact to phone book.
      *
      * @param contactDto PhoneBookContactDto - The request payload
-     * @param errors  Errors - If request body has any error
+     * @param errors     Errors - If request body has any error
      * @return ResponseEntity of PhoneBookResponse - Error or success
      */
-    @PostMapping("/add")
-    public ResponseEntity<PhoneBookResponse> addPhoneBookContact(@Valid @RequestBody PhoneBookContactDto contactDto, Errors errors) {
-        log.info("Adding New PhoneBook Contact");
+    @PostMapping(value = {"/add"}, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<PhoneBookResponse> addContact(@Valid @RequestBody PhoneBookContactDto contactDto, Errors errors) {
+        log.debug("Adding New PhoneBook Contact");
         if (errors.hasErrors()) {
-            log.info("PhoneBook Contact is invalid");
+            log.debug("PhoneBook Contact is invalid");
             List<FieldError> fieldErrors = errors.getFieldErrors();
             Map<String, String> reqErr = new HashMap<>();
             for (FieldError fieldError : fieldErrors) {
                 reqErr.put(fieldError.getField(), fieldError.getDefaultMessage());
             }
-            return new ResponseEntity<>(ErrorResponse.builder().errors(reqErr).build(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(ErrorResponse.builder().fieldsError(reqErr)
+                    .errorMessage("PhoneBook Contact is invalid").build(),
+                    HttpStatus.BAD_REQUEST);
         } else {
-            log.info("PhoneBook Contact is valid");
+            log.debug("PhoneBook Contact is valid");
             return new ResponseEntity<>(SuccessResponse.builder().successMessage("Phonebook Contact created").build(), HttpStatus.CREATED);
         }
     }

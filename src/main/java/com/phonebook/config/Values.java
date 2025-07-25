@@ -46,4 +46,8 @@ public class Values {
     public static final String FIRST_NAME_ERR_MSG_1 = "First Name must not be null";
 
     public static final String FIRST_NAME_ERR_MSG_2 = "First Name is Invalid";
+
+    public static final String SYS_APP_ENV_HOSTNAME = "MyPhoneBook.app.hostname";
+
+    public static final String SYS_PRO_ENV_HOST_IP = "MyPhoneBook.app.hostIp";
 }

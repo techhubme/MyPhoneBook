@@ -1,5 +1,6 @@
 package com.phonebook;
 
+import com.phonebook.config.LogMessage;
 import com.phonebook.config.Values;
 import com.phonebook.util.AppUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class MyPhoneBookApplication {
 	 * @param args Array of String - The command line arguments
 	 */
 	public static void main(String[] args) {
-		log.debug("Starting Application");
+		log.debug(LogMessage.MSG_1);
 		AppUtils.performPreInitialize();
 		ConfigurableApplicationContext ctx = SpringApplication.run(MyPhoneBookApplication.class, args);
 		Values values = ctx.getBean(Values.class);

@@ -1,5 +1,7 @@
 package com.phonebook.util;
 
+import com.phonebook.config.LogMessage;
+import com.phonebook.config.Values;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.Inet4Address;
@@ -46,7 +48,7 @@ public final class LogUtils {
                 }
             }
         } catch (Exception ex) {
-            log.error("Unable to read the Hostname and IP", ex);
+            log.error(LogMessage.MSG_2, ex);
         }
         int hostLen = hostIp.length();
         hostIp.delete(hostLen - 2, hostLen);
@@ -59,7 +61,7 @@ public final class LogUtils {
      * Sets the logger pattern's context placeholder values
      */
     public static void setLogThreadContext() {
-        System.setProperty("my.phone.book.app.host.name", HOST_NAME);
-        System.setProperty("my.phone.book.app.host.ip", HOST_IP);
+        System.setProperty(Values.SYS_APP_ENV_HOSTNAME, HOST_NAME);
+        System.setProperty(Values.SYS_PRO_ENV_HOST_IP, HOST_IP);
     }
 }
