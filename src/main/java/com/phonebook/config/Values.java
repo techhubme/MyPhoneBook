@@ -1,7 +1,13 @@
 package com.phonebook.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 
 /**
  * Constants defined for reusability.
@@ -9,28 +15,31 @@ import org.springframework.stereotype.Component;
  * @author Ram Niwash
  * @since 1.0.0
  */
+@Slf4j
 @Component
 public class Values {
 
     /**
      * Private constructor to avoid the object creation.
      */
-    private Values(){}
+    private Values() {
+    }
 
+    /* APP_HOST_NAME - Application Server's hostname */
     @Value("${server.port}")
     public String applicationPort;
 
-    /* LINE Constant */
-    public static final String LINE = "---------------------------------------------------------------------";
+    /* APP_HOST_NAME - Application Server's hostname */
+    public static final String APP_HOST_NAME;
 
-    /* WELCOME_MSG Constant */
-    public static final String WELCOME_MESSAGE = "Welcome to MyPhoneBook Application";
+    /* APP_HOST_IP - Application Server's hostIp */
+    public static final String APP_HOST_IP;
 
-    /* NEW_LINE Constant */
+    /* NEW_LINE - New line character */
     public static final String NEW_LINE = "\n";
 
     /* HOST Constant */
-    public static final String HTTP = "http://";
+    public static final String HTTP_PROTOCOL_PART = "http://";
 
     /* COLON Constant */
     public static final String COLON = ":";
@@ -41,13 +50,48 @@ public class Values {
     /* SWAGGER_UI_ENDPOINT Constant */
     public static final String SWAGGER_UI_ENDPOINT = "/swagger-ui/index.html";
 
-    public static final String NAME_REGEX = "[A-Z][a-zA-Z ]+";
+    /* SYS_ENV_APP_HOSTNAME for application Hostname environment variable */
+    public static final String SYS_ENV_APP_HOSTNAME = "MyPhoneBook.app.hostname";
 
-    public static final String FIRST_NAME_ERR_MSG_1 = "First Name must not be null";
+    /* SYS_ENV_APP_HOST_IP for application HostIp environment variable */
+    public static final String SYS_ENV_APP_HOST_IP = "MyPhoneBook.app.hostIp";
 
-    public static final String FIRST_NAME_ERR_MSG_2 = "First Name is Invalid";
+    /* NAME_REGEX - Regular expression for name */
+    public static final String NAME_REGEX = "[a-zA-Z ]{0,15}";
 
-    public static final String SYS_APP_ENV_HOSTNAME = "MyPhoneBook.app.hostname";
+    /* LANDMARK_REGEX - Regular expression for address landmark */
+    public static final String LANDMARK_REGEX = "[a-zA-Z0-9# ]{0,40}";
 
-    public static final String SYS_PRO_ENV_HOST_IP = "MyPhoneBook.app.hostIp";
+    /* CALLING_COUNTRY_CODE_REGEX - Regular expression for Phone call country code */
+    public static final String CALLING_COUNTRY_CODE_REGEX = "^\\+\\d{1,4}$";
+
+    /* CALLING_COUNTRY_CODE_REGEX - Regular expression for Phone call country code */
+    public static final String CONTACT_NUMBER_REGEX = "\\d{6,14}$";
+
+    /* Initialize the static variables */
+    static {
+        log.debug(LogMessage.VALUES_MSG_1);
+        String hostName = "";
+        StringBuilder hostIp = new StringBuilder();
+        try {
+            hostName = InetAddress.getLocalHost().getHostName();
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface netInf = interfaces.nextElement();
+                Enumeration<InetAddress> addresses = netInf.getInetAddresses();
+                while (addresses.hasMoreElements()) {
+                    InetAddress inetAddress = addresses.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        hostIp.append(inetAddress.getHostAddress()).append(", ");
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            log.error(LogMessage.VALUES_MSG_2, ex);
+        }
+        int hostLen = hostIp.length();
+        hostIp.delete(hostLen - 2, hostLen);
+        APP_HOST_NAME = hostName;
+        APP_HOST_IP = hostIp.toString();
+    }
 }

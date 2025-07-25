@@ -18,18 +18,27 @@ import io.swagger.v3.oas.models.info.License;
 @Configuration
 public class APIConfiguration {
 
-	@Bean
-	public OpenAPI springShopOpenAPI() {
-		return new OpenAPI()
-				.info(new Info().title("PhoneBook API").description("The Curd operation for phonebook api")
-						.version("1.0.0").license(new License().name("Apache 2.0").url("http://springdoc.org")))
-				.externalDocs(new ExternalDocumentation().description("Spring Test Wiki Documentation")
-						.url("https://test.org/docs"));
-	}
+    @Bean
+    public OpenAPI springShopOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("PhoneBook API")
+                        .description("PhoneBook API Operation")
+                        .version("1.0.0")
+                        .license(new License()
+                                .name("Apache 2.0")
+                                .url("http://springdoc.org")))
+                .externalDocs(new ExternalDocumentation()
+                        .description("PhoneBook Wiki Documents")
+                        .url("https://test.org/docs"));
+    }
 
-	@Bean
-	public GroupedOpenApi apiGroupA() {
-		return GroupedOpenApi.builder().group("PhoneBook API").pathsToMatch("/**")
-				.packagesToScan("com.phonebook.controller").build();
-	}
+    @Bean
+    public GroupedOpenApi apiGroupA() {
+        return GroupedOpenApi.builder()
+                .group("PhoneBook API")
+                .pathsToMatch("/**")
+                .packagesToScan("com.phonebook.controller")
+                .build();
+    }
 }

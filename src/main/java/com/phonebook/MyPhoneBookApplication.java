@@ -18,17 +18,16 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class MyPhoneBookApplication {
 
-	/**
-	 * The Starting point of application
-	 *
-	 * @param args Array of String - The command line arguments
-	 */
-	public static void main(String[] args) {
-		log.debug(LogMessage.MSG_1);
-		AppUtils.performPreInitialize();
-		ConfigurableApplicationContext ctx = SpringApplication.run(MyPhoneBookApplication.class, args);
-		Values values = ctx.getBean(Values.class);
-		AppUtils.initializeValues(values);
-		AppUtils.performPostInitialize();
-	}
+    /**
+     * The Starting point of application
+     *
+     * @param args Array of String - The command line arguments
+     */
+    public static void main(String[] args) {
+        AppUtils.performPreInitialize();
+        ConfigurableApplicationContext ctx = SpringApplication.run(MyPhoneBookApplication.class, args);
+        Values values = ctx.getBean(Values.class);
+        AppUtils.setValues(values);
+        AppUtils.performPostInitialize();
+    }
 }

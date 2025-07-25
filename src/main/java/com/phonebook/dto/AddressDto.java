@@ -1,6 +1,9 @@
 
 package com.phonebook.dto;
 
+import com.phonebook.config.UIMessage;
+import com.phonebook.config.Values;
+import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,10 +18,10 @@ import lombok.ToString;
 @Builder
 @ToString
 @Getter
-@EqualsAndHashCode
 public class AddressDto {
 
     /* The landmark or locality of address */
+    @Pattern(message = UIMessage.LANDMARK_ERR_MSG_1, regexp = Values.LANDMARK_REGEX)
     private String landMark;
 
     /* Name of the city or village */
@@ -31,7 +34,7 @@ public class AddressDto {
     private String state;
 
     /* The country for address */
-    private CountryDto countryDto;
+    private String countryName;
 
     /* PinCode or ZipCode of address */
     private String pinCode;
@@ -43,6 +46,6 @@ public class AddressDto {
      * ENUM for address type
      */
     public enum AddressType {
-        CURRENT, PERMANENT
+        CURRENT_ADDRESS, PERMANENT_ADDRESS
     }
 }

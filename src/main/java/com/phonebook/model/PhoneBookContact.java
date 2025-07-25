@@ -32,7 +32,7 @@ public class PhoneBookContact {
     private String lastName;
 
     /* List of Contact of person */
-    private List<Contact> contactList;
+    private List<Contact> contacts;
 
     /* List of address for contact */
     private List<Address> addresses;

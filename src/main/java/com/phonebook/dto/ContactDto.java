@@ -1,5 +1,13 @@
 package com.phonebook.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.phonebook.config.UIMessage;
+import com.phonebook.config.Values;
+import com.phonebook.util.ValidEnum;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,15 +21,20 @@ import lombok.ToString;
  * @since 1.0.0
  */
 @Builder
-@ToString
 @Getter
-@EqualsAndHashCode
+@ToString
 public class ContactDto {
 
     /* Country code of contact number */
+    @NotNull(message = UIMessage.COUNTRY_CODE_ERR_MSG_1)
+    @NotBlank(message = UIMessage.COUNTRY_CODE_ERR_MSG_1)
+    @Pattern(message = UIMessage.COUNTRY_CODE_ERR_MSG_2, regexp = Values.CALLING_COUNTRY_CODE_REGEX)
     private String countryCode;
 
     /* Contact number */
+    @NotNull(message = UIMessage.CONTACT_NUMBER_ERR_MSG_1)
+    @NotBlank(message = UIMessage.CONTACT_NUMBER_ERR_MSG_1)
+    @Pattern(message = UIMessage.CONTACT_NUMBER_ERR_MSG_2, regexp = Values.CONTACT_NUMBER_REGEX)
     private String contactNumber;
 
     /* Type of contact */
@@ -31,6 +44,6 @@ public class ContactDto {
      * ContactType enum
      */
     public enum ContactType {
-        MOBILE, LANDLINE, OFFICE, HOME
+        MOBILE, LANDLINE, OFFICE,
     }
 }

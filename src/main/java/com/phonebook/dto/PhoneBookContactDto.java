@@ -1,10 +1,12 @@
 package com.phonebook.dto;
 
+import com.phonebook.config.UIMessage;
 import com.phonebook.config.Values;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -19,26 +21,30 @@ import java.util.List;
 @Builder
 @ToString
 @Getter
-@EqualsAndHashCode
 public class PhoneBookContactDto {
 
     /* First name of person */
-    @NotNull(message = Values.FIRST_NAME_ERR_MSG_1)
-    @Pattern(message = Values.FIRST_NAME_ERR_MSG_2, regexp = Values.NAME_REGEX)
+    @NotNull(message = UIMessage.FIRST_NAME_ERR_MSG_1)
+    @NotBlank(message = UIMessage.FIRST_NAME_ERR_MSG_1)
+    @Pattern(message = UIMessage.FIRST_NAME_ERR_MSG_2, regexp = Values.NAME_REGEX)
     private String firstName;
 
     /* Middle name of person */
+    @Pattern(message = UIMessage.MIDDLE_NAME_ERR_MSG_1, regexp = Values.NAME_REGEX)
     private String middleName;
 
     /* Last name of person */
-    @NotNull(message = "First Name must not be null")
-    @Pattern(message = "First Name is Invalid", regexp = Values.NAME_REGEX)
+    @NotNull(message = UIMessage.LAST_NAME_ERR_MSG_1)
+    @NotBlank(message = UIMessage.LAST_NAME_ERR_MSG_1)
+    @Pattern(message = UIMessage.LAST_NAME_ERR_MSG_2, regexp = Values.NAME_REGEX)
     private String lastName;
 
     /* List of Contact of person */
-    private List<ContactDto> contactList;
+    @Valid
+    @NotNull(message = UIMessage.CONTACT_NUMBER_ERR_MSG_3)
+    private List<ContactDto> contacts;
 
     /* List of address for contact */
+    @Valid
     private List<AddressDto> addresses;
-
 }
