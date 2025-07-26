@@ -52,4 +52,37 @@ public class UIMessage {
     /* LANDMARK_ERR_MSG_1 - Message for invalid address landmark */
     public static final String LANDMARK_ERR_MSG_1 = "Invalid Landmark";
 
+    /* VILLAGE_CITY_ERR_MSG_1 - Message for invalid village or city landmark */
+    public static final String VILLAGE_CITY_ERR_MSG_1 = "Village or city should not empty";
+
+    /* VILLAGE_CITY_ERR_MSG_2 - Message for invalid village or city landmark */
+    public static final String VILLAGE_CITY_ERR_MSG_2 = "Invalid village or city";
+
+    /* VILLAGE_CITY_ERR_MSG_1 - Message for invalid village or city landmark */
+    public static final String DISTRICT_ERR_MSG_1 = "District should not empty";
+
+    /* VILLAGE_CITY_ERR_MSG_1 - Message for invalid village or city landmark */
+    public static final String DISTRICT_ERR_MSG_2 = "District is invalid";
+
+    /* STATE_ERR_MSG_1 - Message for invalid address State */
+    public static final String STATE_ERR_MSG_1 = "State should not empty";
+
+    /* STATE_ERR_MSG_2 - Message for invalid address State */
+    public static final String STATE_ERR_MSG_2 = "State is invalid";
+
+    /* COUNTRY_ERR_MSG_1 - Message for invalid address country */
+    public static final String COUNTRY_ERR_MSG_1 = "Country should not empty";
+
+    /* STATE_ERR_MSG_2 - Message for invalid address country */
+    public static final String COUNTRY_ERR_MSG_2 = "Country is invalid";
+
+    /* PIN_CODE_ERR_MSG_1 - Message for invalid address Pin code or Zip code */
+    public static final String PIN_CODE_ERR_MSG_1 = "PinCode or ZipCode should not empty";
+
+    /* PIN_CODE_ERR_MSG_2 - Message for invalid address Pin code or Zip code */
+    public static final String PIN_CODE_ERR_MSG_2 = "PinCode or ZipCode is invalid";
+
+    /* CTRLR_ADV_ERR_MSG_1 - Message when server got exception or error while processing request */
+    public static final String CTRLR_ADV_ERR_MSG_1 = "Internal Error: Id# %s";
+
 }

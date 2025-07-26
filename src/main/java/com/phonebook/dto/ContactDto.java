@@ -1,15 +1,11 @@
 package com.phonebook.dto;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.phonebook.config.UIMessage;
 import com.phonebook.config.Values;
-import com.phonebook.util.ValidEnum;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 

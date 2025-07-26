@@ -37,4 +37,7 @@ public final class LogMessage {
 
     /* VALUES_MSG_3 - Error logs while reading hostname and hostIpe */
     public static final String VALUES_MSG_2 = "Unable to read the Hostname and IP";
+
+    /* CTRLR_ADV_ERROR_MSG_1 - Error logs when server got exception or error while processing request */
+    public static final String CTRLR_ADV_ERROR_MSG_1 = "Exception/Error ID# {}";
 }

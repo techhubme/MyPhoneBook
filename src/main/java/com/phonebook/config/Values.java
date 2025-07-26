@@ -29,6 +29,9 @@ public class Values {
     @Value("${server.port}")
     public String applicationPort;
 
+    @Value("${springdoc.swagger-ui.path}")
+    public String swaggerUIPath;
+
     /* APP_HOST_NAME - Application Server's hostname */
     public static final String APP_HOST_NAME;
 
@@ -47,9 +50,6 @@ public class Values {
     /* COMMA Constant */
     public static final String COMMA = ",";
 
-    /* SWAGGER_UI_ENDPOINT Constant */
-    public static final String SWAGGER_UI_ENDPOINT = "/swagger-ui/index.html";
-
     /* SYS_ENV_APP_HOSTNAME for application Hostname environment variable */
     public static final String SYS_ENV_APP_HOSTNAME = "MyPhoneBook.app.hostname";
 
@@ -59,14 +59,23 @@ public class Values {
     /* NAME_REGEX - Regular expression for name */
     public static final String NAME_REGEX = "[a-zA-Z ]{0,15}";
 
-    /* LANDMARK_REGEX - Regular expression for address landmark */
-    public static final String LANDMARK_REGEX = "[a-zA-Z0-9# ]{0,40}";
+    /* LANDMARK_REGEX - Regular expression for village or city landmark */
+    public static final String LANDMARK_REGEX = "[a-zA-Z0-9#. ]{0,40}";
+
+    /* VILLAGE_CITY_REGEX - Regular expression for address landmark */
+    public static final String VILLAGE_CITY_REGEX = "[a-zA-Z0-9# ]{1,30}";
 
     /* CALLING_COUNTRY_CODE_REGEX - Regular expression for Phone call country code */
     public static final String CALLING_COUNTRY_CODE_REGEX = "^\\+\\d{1,4}$";
 
     /* CALLING_COUNTRY_CODE_REGEX - Regular expression for Phone call country code */
     public static final String CONTACT_NUMBER_REGEX = "\\d{6,14}$";
+
+    /* DISTRICT_REGEX - Regular expression for address district */
+    public static final String DISTRICT_REGEX = "[a-zA-Z0-9# ]{1,25}";
+
+    /* DISTRICT_REGEX - Regular expression for address district */
+    public static final String PIN_CODE_REGEX = "[a-zA-Z0-9 ]{1,10}";
 
     /* Initialize the static variables */
     static {

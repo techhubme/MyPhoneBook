@@ -5,6 +5,8 @@ import com.phonebook.config.Values;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
+
 /**
  * Application utility class
  *
@@ -32,9 +34,9 @@ public final class AppUtils {
     }
 
     /**
-     *  Set the Application environment variables.
+     * Set the Application environment variables.
      */
-    private static void setEnv(){
+    private static void setEnv() {
         log.debug(LogMessage.APP_UTILS_MSG_3);
         System.setProperty(Values.SYS_ENV_APP_HOSTNAME, Values.APP_HOST_NAME);
         System.setProperty(Values.SYS_ENV_APP_HOST_IP, Values.APP_HOST_IP);
@@ -71,10 +73,29 @@ public final class AppUtils {
                     .append(ip)
                     .append(Values.COLON)
                     .append(values.applicationPort)
-                    .append(Values.SWAGGER_UI_ENDPOINT)
+                    .append(values.swaggerUIPath)
                     .append(Values.NEW_LINE);
         }
         endPointInfo.append(LogMessage.LINE);
         log.info(endPointInfo.toString());
+    }
+
+    /**
+     * Generate and return a unique error id to analysis the log efficiently
+     *
+     * @return String - A unique error id for log analysis
+     */
+    public static String getErrorId() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        StringBuilder errorId = new StringBuilder();
+        errorId.append(currentDateTime.getHour())
+                .append(currentDateTime.getMinute())
+                .append(currentDateTime.getSecond())
+                .append(currentDateTime.getNano())
+                .append(currentDateTime.getDayOfMonth())
+                .append(currentDateTime.getMonthValue())
+                .append(currentDateTime.getYear())
+                .append(Math.random());
+        return errorId.toString();
     }
 }

@@ -38,7 +38,7 @@ public class PhoneBookController {
      * @return ResponseEntity of PhoneBookResponse - Error or success
      */
     @PostMapping(value = {"/add"}, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<PhoneBookResponse> addContact(@Valid @RequestBody PhoneBookContactDto contactDto, Errors errors) {
+    public ResponseEntity<PhoneBookResponse> addContact(@Valid @RequestBody PhoneBookContactDto contactDto, Errors errors) throws Exception {
         log.debug(LogMessage.PHONE_BOOK_CNTLR_MSG_1);
         if (errors.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();
