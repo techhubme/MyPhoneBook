@@ -31,7 +31,7 @@ public class Address {
     private String state;
 
     /* The country for address */
-    private Country country;
+    private String countryName;
 
     /* PinCode or ZipCode of address */
     private String pinCode;

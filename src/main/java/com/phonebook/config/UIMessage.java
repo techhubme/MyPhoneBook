@@ -85,4 +85,6 @@ public class UIMessage {
     /* CTRLR_ADV_ERR_MSG_1 - Message when server got exception or error while processing request */
     public static final String CTRLR_ADV_ERR_MSG_1 = "Internal Error: Id# %s";
 
+    /* CTRLR_ADV_ERR_MSG_1 - Message when enum value is invalid */
+    public static final String ENUM_IVALID_ERR = "Invalid %s value. Allowed values are %s";
 }

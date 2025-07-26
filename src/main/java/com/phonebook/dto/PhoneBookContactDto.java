@@ -1,5 +1,6 @@
 package com.phonebook.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.phonebook.config.UIMessage;
 import com.phonebook.config.Values;
 import jakarta.validation.Valid;
@@ -21,6 +22,7 @@ import java.util.List;
 @Builder
 @ToString
 @Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PhoneBookContactDto {
 
     /* First name of person */

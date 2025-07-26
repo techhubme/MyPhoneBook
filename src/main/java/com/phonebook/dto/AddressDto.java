@@ -1,6 +1,7 @@
 
 package com.phonebook.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.phonebook.config.UIMessage;
 import com.phonebook.config.Values;
 import jakarta.validation.constraints.NotBlank;
@@ -19,6 +20,7 @@ import lombok.ToString;
 @Builder
 @ToString
 @Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressDto {
 
     /* The landmark or locality of address */

@@ -40,4 +40,10 @@ public final class LogMessage {
 
     /* CTRLR_ADV_ERROR_MSG_1 - Error logs when server got exception or error while processing request */
     public static final String CTRLR_ADV_ERROR_MSG_1 = "Exception/Error ID# {}";
+
+    /* CTRLR_ADV_MSG_1 - Log message when controller advice handling global exception. */
+    public static final String CTRLR_ADV_MSG_1 = "Handling controller's thrown exception";
+
+    /* CTRLR_ADV_MSG_2 - Log message when controller advice handling enum related validation exception. */
+    public static final String CTRLR_ADV_MSG_2 = "Handling controller's enum value exception";
 }
