@@ -1,10 +1,8 @@
 package com.phonebook.model;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,11 +11,8 @@ import java.util.List;
  * @author Ram Niwash
  * @since 1.0.0
  */
-@Builder
-@ToString
-@Getter
-@EqualsAndHashCode
-public class PhoneBookContact {
+@Data
+public class PhoneBookContact implements Serializable {
 
     /* Unique contact id */
     private String contactId;

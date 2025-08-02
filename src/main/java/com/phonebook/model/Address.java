@@ -1,10 +1,9 @@
 
 package com.phonebook.model;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import java.io.Serializable;
 
 /**
  * Address class represent the contact address.
@@ -12,11 +11,8 @@ import lombok.ToString;
  * @author Ram Niwash
  * @since 1.0.0
  */
-@Builder
-@ToString
-@Getter
-@EqualsAndHashCode
-public class Address {
+@Data
+public class Address implements Serializable {
 
     /* The landmark or locality of address */
     private String landMark;
@@ -42,7 +38,7 @@ public class Address {
     /**
      * ENUM for address type
      */
-    public enum AddressType {
-        CURRENT, PERMANENT
+    public enum AddressType implements Serializable {
+        CURRENT_ADDRESS, PERMANENT_ADDRESS
     }
 }

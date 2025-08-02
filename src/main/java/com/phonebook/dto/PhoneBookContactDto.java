@@ -7,9 +7,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.util.List;
 
@@ -19,9 +17,7 @@ import java.util.List;
  * @author Ram Niwash
  * @since 1.0.0
  */
-@Builder
-@ToString
-@Getter
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PhoneBookContactDto {
 

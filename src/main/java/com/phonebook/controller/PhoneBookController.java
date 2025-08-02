@@ -6,8 +6,10 @@ import com.phonebook.dto.PhoneBookContactDto;
 import com.phonebook.response.ErrorResponse;
 import com.phonebook.response.PhoneBookResponse;
 import com.phonebook.response.SuccessResponse;
+import com.phonebook.service.PhoneBookService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,14 @@ import java.util.Map;
 @RequestMapping(value = "/contact")
 public class PhoneBookController {
 
+    /* phoneBookService reference */
+    private PhoneBookService phoneBookService;
+
+    @Autowired
+    private PhoneBookController(PhoneBookService phoneBookService) {
+        this.phoneBookService = phoneBookService;
+    }
+
     /**
      * Add a new contact to phone book.
      *
@@ -43,12 +53,13 @@ public class PhoneBookController {
         if (errors.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();
             List<FieldError> fieldErrors = errors.getFieldErrors();
-            fieldErrors.forEach(e-> errorMap.put(e.getField(), e.getDefaultMessage()));
+            fieldErrors.forEach(e -> errorMap.put(e.getField(), e.getDefaultMessage()));
             return new ResponseEntity<>(ErrorResponse.builder().fieldsError(errorMap)
                     .errorMessage(UIMessage.PHONE_BOOK_CTRLR_MSG_2).build(),
                     HttpStatus.BAD_REQUEST);
         } else {
-            return new ResponseEntity<>(SuccessResponse.builder()
+            String id = this.phoneBookService.save(contactDto);
+            return new ResponseEntity<>(SuccessResponse.builder().contactId(id)
                     .successMessage(UIMessage.PHONE_BOOK_CTRLR_MSG_1).build(), HttpStatus.CREATED);
         }
     }

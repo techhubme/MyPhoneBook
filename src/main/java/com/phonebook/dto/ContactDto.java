@@ -6,9 +6,7 @@ import com.phonebook.config.Values;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * Contact class represent the contact number.
@@ -17,9 +15,7 @@ import lombok.ToString;
  * @author Ram Niwash
  * @since 1.0.0
  */
-@Builder
-@Getter
-@ToString
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ContactDto {
 
@@ -42,6 +38,6 @@ public class ContactDto {
      * ContactType enum
      */
     public enum ContactType {
-        MOBILE, LANDLINE, OFFICE,
+        MOBILE, LANDLINE, OFFICE, HOME
     }
 }

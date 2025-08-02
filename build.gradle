@@ -51,6 +51,11 @@ dependencies {
 
 	/* JUnit */
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Project libs dependencies
+	implementation files(
+			"${projectDir}/libs/datarepo-1.0.0.jar"
+	)
 }
 
 /* Excludes the dependencies */
