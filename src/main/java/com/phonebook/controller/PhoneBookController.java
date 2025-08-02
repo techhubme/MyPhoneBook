@@ -94,7 +94,7 @@ public class PhoneBookController {
             boolean flag = this.phoneBookService.update(contactDto);
             String message = flag ? UIMessage.PHONE_BOOK_CTRLR_MSG_9 : UIMessage.PHONE_BOOK_CTRLR_MSG_10;
             return new ResponseEntity<>(SuccessResponse.builder()
-                    .successMessage(message).build(), HttpStatus.CREATED);
+                    .successMessage(message).build(), HttpStatus.OK);
         }
     }
 
