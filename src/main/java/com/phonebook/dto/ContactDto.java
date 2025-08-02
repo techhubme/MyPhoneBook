@@ -1,5 +1,6 @@
 package com.phonebook.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.phonebook.config.UIMessage;
 import com.phonebook.config.Values;
@@ -17,6 +18,7 @@ import lombok.Data;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContactDto {
 
     /* Country code of contact number */

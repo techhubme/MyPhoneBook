@@ -50,6 +50,9 @@ public class Values {
     /* COMMA Constant */
     public static final String COMMA = ",";
 
+    /* ID Constant */
+    public static final String ID= "id";
+
     /* SYS_ENV_APP_HOSTNAME for application Hostname environment variable */
     public static final String SYS_ENV_APP_HOSTNAME = "MyPhoneBook.app.hostname";
 
@@ -76,6 +79,9 @@ public class Values {
 
     /* DISTRICT_REGEX - Regular expression for address district */
     public static final String PIN_CODE_REGEX = "[a-zA-Z0-9 ]{1,10}";
+
+    /* NUMBER_REGEX - Regular expression for number only */
+    public static final String NUMBER_REGEX = "\\d+";
 
     /* Initialize the static variables */
     static {

@@ -12,6 +12,9 @@ spring:
   mvc:
     servlet:
       load-on-startup: 1
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
 
   # Data Source and JPA Configuration
   datasource:

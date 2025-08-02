@@ -87,15 +87,15 @@ public final class AppUtils {
      */
     public static String getErrorId() {
         LocalDateTime currentDateTime = LocalDateTime.now();
-        StringBuilder errorId = new StringBuilder();
-        errorId.append(currentDateTime.getHour())
+        return new StringBuilder()
+                .append(currentDateTime.getHour())
+                .append(Math.random())
                 .append(currentDateTime.getMinute())
                 .append(currentDateTime.getSecond())
                 .append(currentDateTime.getNano())
                 .append(currentDateTime.getDayOfMonth())
                 .append(currentDateTime.getMonthValue())
                 .append(currentDateTime.getYear())
-                .append(Math.random());
-        return errorId.toString();
+                .append(Math.random()).toString();
     }
 }

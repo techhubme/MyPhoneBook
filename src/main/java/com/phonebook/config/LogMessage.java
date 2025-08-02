@@ -46,4 +46,16 @@ public final class LogMessage {
 
     /* CTRLR_ADV_MSG_2 - Log message when controller advice handling enum related validation exception. */
     public static final String CTRLR_ADV_MSG_2 = "Handling controller's enum value exception";
+
+    /* CTRLR_ADV_MSG_3 - Log message when controller advice handling method validation exception. */
+    public static final String CTRLR_ADV_MSG_3 = "Handling controller's method validation exception";
+
+    /* CTRLR_ADV_MSG_4 - Log message when controller advice handling method validation exception. */
+    public static final String CTRLR_ADV_MSG_4 = "Handling controller exception";
+
+    /* LOC_BOOK_SERVICE_MSG_1 - Log message when contact unable to save. */
+    public static final String LOC_BOOK_SERVICE_MSG_1 = "Unable to save phone book contact";
+
+    /* LOC_BOOK_SERVICE_MSG_2 - Log message when contact not foud for given id. */
+    public static final String LOC_BOOK_SERVICE_MSG_2 = "Contact not found for id {0}";
 }

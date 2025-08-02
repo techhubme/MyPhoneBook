@@ -87,4 +87,11 @@ public class UIMessage {
 
     /* CTRLR_ADV_ERR_MSG_1 - Message when enum value is invalid */
     public static final String ENUM_IVALID_ERR = "Invalid %s value. Allowed values are %s";
+
+    /* PHONE_BOOK_CTRLR_MSG_3 - Message for invalid path variable or path parameter empty */
+    public static final String PHONE_BOOK_CTRLR_MSG_3 = "Invalid request parameter or path variable";
+
+    /* PHONE_BOOK_CTRLR_MSG_4 - Message for invalid Contact id */
+    public static final String PHONE_BOOK_CTRLR_MSG_4 =  "Contact id should be a number";
+
 }

@@ -12,6 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringBeanConfiguration {
 
+    /**
+     * LocalObjectRepository bean for PhoneBookContact
+     *
+     * @return LocalObjectRepository of PhoneBookContact type
+     * @throws ObjectRepositoryException exception
+     */
     @Bean
     public LocalObjectRepository<PhoneBookContact> localObjectRepository() throws ObjectRepositoryException {
         return new LocalObjectRepository<>();

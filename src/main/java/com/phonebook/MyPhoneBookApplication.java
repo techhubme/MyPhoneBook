@@ -1,6 +1,5 @@
 package com.phonebook;
 
-import com.phonebook.config.LogMessage;
 import com.phonebook.config.Values;
 import com.phonebook.util.AppUtils;
 import lombok.extern.slf4j.Slf4j;
