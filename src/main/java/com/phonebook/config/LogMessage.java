@@ -58,4 +58,16 @@ public final class LogMessage {
 
     /* LOC_BOOK_SERVICE_MSG_2 - Log message when contact not foud for given id. */
     public static final String LOC_BOOK_SERVICE_MSG_2 = "Contact not found for id {0}";
+
+    /* LOC_BOOK_SERVICE_MSG_3 - Log message when contact not foud for given id. */
+    public static final String LOC_BOOK_SERVICE_MSG_3 = "Contact not deleted for id {0}";
+
+    /* LOC_BOOK_SERVICE_MSG_4 - Log message when getting contacts list. */
+    public static final String LOC_BOOK_SERVICE_MSG_4 = "Couldn't get the list of contacts";
+
+    /* LOC_BOOK_SERVICE_MSG_5 - Log message when update the contact list. */
+    public static final String LOC_BOOK_SERVICE_MSG_5 = "Contact id should not be empty";
+
+    /* LOC_BOOK_SERVICE_MSG_6 - Log message when contact unable to update. */
+    public static final String LOC_BOOK_SERVICE_MSG_6 = "Unable to update phone book contact";
 }

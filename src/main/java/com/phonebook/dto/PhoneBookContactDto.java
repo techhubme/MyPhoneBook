@@ -23,6 +23,9 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PhoneBookContactDto {
 
+    /* Unique Contact Id */
+    private String contactId;
+
     /* First name of person */
     @NotNull(message = UIMessage.FIRST_NAME_ERR_MSG_1)
     @NotBlank(message = UIMessage.FIRST_NAME_ERR_MSG_1)

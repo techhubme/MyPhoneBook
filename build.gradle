@@ -1,69 +1,69 @@
 plugins {
-	id 'java'
-	id 'war'
-	id 'org.springframework.boot' version '3.5.4'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.phonebook'
 version = '1.0.0'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 /* Project dependencies */
 dependencies {
 
-	/* Spring-boot Starters */
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+    /* Spring-boot Starters */
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	/* Swagger API */
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
+    /* Swagger API */
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	/* Lombok */
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+    /* Lombok */
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
-	/* Slf4j Logger */
-	implementation 'org.slf4j:slf4j-api:2.0.17'
-	implementation 'org.apache.logging.log4j:log4j-core:2.25.1'
-	implementation 'org.apache.logging.log4j:log4j-api:2.25.1'
-	implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.25.1'
+    /* Slf4j Logger */
+    implementation 'org.slf4j:slf4j-api:2.0.17'
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.25.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.25.1'
 
-	/* Hibernate */
-	implementation("org.hibernate.validator:hibernate-validator:9.0.1.Final")
+    /* Hibernate */
+    implementation("org.hibernate.validator:hibernate-validator:9.0.1.Final")
 
-	/* JUnit */
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    /* JUnit */
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // Project libs dependencies
-	implementation files(
-			"${projectDir}/libs/datarepo-1.0.0.jar"
-	)
+    implementation files(
+            "${projectDir}/libs/datarepo-1.0.0.jar"
+    )
 }
 
 /* Excludes the dependencies */
 configurations.configureEach {
-	exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-	exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+    exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

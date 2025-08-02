@@ -51,7 +51,13 @@ public class Values {
     public static final String COMMA = ",";
 
     /* ID Constant */
-    public static final String ID= "id";
+    public static final String ID = "id";
+
+    /* OFFSET Constant */
+    public static final String OFFSET = "offset";
+
+    /* LIMIT Constant */
+    public static final String LIMIT = "limit";
 
     /* SYS_ENV_APP_HOSTNAME for application Hostname environment variable */
     public static final String SYS_ENV_APP_HOSTNAME = "MyPhoneBook.app.hostname";

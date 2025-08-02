@@ -89,9 +89,26 @@ public class UIMessage {
     public static final String ENUM_IVALID_ERR = "Invalid %s value. Allowed values are %s";
 
     /* PHONE_BOOK_CTRLR_MSG_3 - Message for invalid path variable or path parameter empty */
-    public static final String PHONE_BOOK_CTRLR_MSG_3 = "Invalid request parameter or path variable";
+    public static final String PHONE_BOOK_CTRLR_MSG_3 = "Invalid request parameter";
 
     /* PHONE_BOOK_CTRLR_MSG_4 - Message for invalid Contact id */
     public static final String PHONE_BOOK_CTRLR_MSG_4 =  "Contact id should be a number";
 
+    /* PHONE_BOOK_CTRLR_MSG_5 - Message for Get contact by id */
+    public static final String PHONE_BOOK_CTRLR_MSG_5 =  "Found phone book contact";
+
+    /* PHONE_BOOK_CTRLR_MSG_6 - Message for delete contact by id */
+    public static final String PHONE_BOOK_CTRLR_MSG_6 =  "Contact deleted for id {0}";
+
+    /* PHONE_BOOK_CTRLR_MSG_7 - Message for delete contact by id */
+    public static final String PHONE_BOOK_CTRLR_MSG_7 =  "Contact not deleted for id {0}";
+
+    /* PHONE_BOOK_CTRLR_MSG_8 - Message for list contacts */
+    public static final String PHONE_BOOK_CTRLR_MSG_8 =  "Found contact list";
+
+    /* PHONE_BOOK_CTRLR_MSG_9 - Message when contact updated successfully */
+    public static final String PHONE_BOOK_CTRLR_MSG_9 = "Phonebook contact updated successfully";
+
+    /* PHONE_BOOK_CTRLR_MSG_10 - Message when contact couldn't updated */
+    public static final String PHONE_BOOK_CTRLR_MSG_10 = "Phonebook contact couldn't updated";
 }

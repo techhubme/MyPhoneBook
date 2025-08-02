@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.List;
+
 /**
  * SuccessResponse class
  *
@@ -25,4 +27,5 @@ public class SuccessResponse implements PhoneBookResponse{
     private String successMessage;
     private String contactId;
     private PhoneBookContactDto contact;
+    private List<PhoneBookContactDto> contacts;
 }

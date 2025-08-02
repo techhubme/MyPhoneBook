@@ -16,20 +16,6 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
 
-  # Data Source and JPA Configuration
-  datasource:
-    url: jdbc:mysql://${MYSQL_DB_HOST}:${MYSQL_DB_PORT}/${MYSQL_DB_NAME_STUDENT_SERVICE}
-    username: ${MYSQL_DB_USERNAME}
-    password: ${MYSQL_DB_PASSWORD}
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-
 # Spring Doc Swagger Open API Docs configuration
 springdoc:
   api-docs:
