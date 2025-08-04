@@ -54,6 +54,7 @@ dependencies {
 
     // Project libs dependencies
     implementation files(
+            "${projectDir}/libs/commons-utility-1.0.0.jar",
             "${projectDir}/libs/datarepo-1.0.0.jar"
     )
 }

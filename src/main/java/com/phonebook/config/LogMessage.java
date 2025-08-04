@@ -1,5 +1,7 @@
 package com.phonebook.config;
 
+import com.svsoft.commons.utility.constant.Emoji;
+
 /**
  * LogMessage Class - Contains all the log messages at single place.
  *
@@ -18,7 +20,7 @@ public final class LogMessage {
     public static final String LINE = "---------------------------------------------------------------------";
 
     /* WELCOME_MESSAGE - Info log when application started successfully */
-    public static final String WELCOME_MESSAGE = "Welcome to MyPhoneBook Application";
+    public static final String WELCOME_MESSAGE = String.format("%s Welcome to MyPhoneBook Application %s", Emoji.NAMASTE, Emoji.NAMASTE);
 
     /* PHONE_BOOK_CNTLR_MSG_1 - Debug log when addContact method is called */
     public static final String PHONE_BOOK_CNTLR_MSG_1 = "Adding New PhoneBook Contact";
@@ -39,7 +41,7 @@ public final class LogMessage {
     public static final String VALUES_MSG_2 = "Unable to read the Hostname and IP";
 
     /* CTRLR_ADV_ERROR_MSG_1 - Error logs when server got exception or error while processing request */
-    public static final String CTRLR_ADV_ERROR_MSG_1 = "Exception/Error ID# {}";
+    public static final String CTRLR_ADV_ERROR_MSG_1 = String.format("%s %s Exception/Error ID# {}", Emoji.ERROR_CROSS_MARK, Emoji.ERROR_FIRE);
 
     /* CTRLR_ADV_MSG_1 - Log message when controller advice handling global exception. */
     public static final String CTRLR_ADV_MSG_1 = "Handling controller's thrown exception";

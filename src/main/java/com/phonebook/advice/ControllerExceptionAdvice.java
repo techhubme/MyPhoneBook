@@ -29,8 +29,10 @@ import java.util.Map;
 @RestControllerAdvice
 public class ControllerExceptionAdvice {
 
+    /* ENUM_FIELD_ERRORS - Map of String and String */
     private static final Map<String, String> ENUM_FIELD_ERRORS = new HashMap<>();
 
+    /* Initialize static final fields */
     static {
         ENUM_FIELD_ERRORS.put("addressType", "[PERMANENT_ADDRESS, CURRENT_ADDRESS]");
         ENUM_FIELD_ERRORS.put("contactType", "[MOBILE, OFFICE, LANDLINE]");
