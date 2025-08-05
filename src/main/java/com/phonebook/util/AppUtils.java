@@ -2,6 +2,7 @@ package com.phonebook.util;
 
 import com.phonebook.config.LogMessage;
 import com.phonebook.config.Values;
+import com.svsoft.commons.utility.constant.LoggerEmoji;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -54,7 +55,8 @@ public final class AppUtils {
      * Logs the Server URL (IP and Port number) for reference.
      */
     private static void showServerEndpoints() {
-        StringBuilder endPointInfo = new StringBuilder(LogMessage.LINE)
+        StringBuilder endPointInfo = new StringBuilder("{} ")
+                .append(LogMessage.LINE)
                 .append(Values.NEW_LINE)
                 .append(LogMessage.WELCOME_MESSAGE)
                 .append(Values.NEW_LINE)
@@ -77,7 +79,7 @@ public final class AppUtils {
                     .append(Values.NEW_LINE);
         }
         endPointInfo.append(LogMessage.LINE);
-        log.info(endPointInfo.toString());
+        log.info(endPointInfo.toString(), LoggerEmoji.INFO);
     }
 
     /**
