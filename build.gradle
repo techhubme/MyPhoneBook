@@ -1,3 +1,5 @@
+import java.util.stream.Collectors
+
 plugins {
     id 'java'
     id 'war'
@@ -6,7 +8,7 @@ plugins {
 }
 
 group = 'com.phonebook'
-version = '1.0.0'
+version = project.version;
 
 java {
     toolchain {
@@ -67,4 +69,28 @@ configurations.configureEach {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.register('incrementVersion') {
+    def propsFile = file("gradle.properties")
+    def props = new Properties()
+    propsFile.withInputStream { props.load(it) }
+    def currentVersion =  props['version'];
+    def parts = currentVersion.tokenize('.').collect { it as int }
+    int[] limits = [80, 100, 200];
+    for (int i = parts.size()-1; i >= 0; i--) {
+        int n = parts.get(i);
+        int limit = limits[i];
+        if (n < limit) {
+            n += 1;
+            parts.set(i, n);
+            break;
+        } else {
+            n = 0;
+            parts.set(i, n);
+        }
+    }
+    String newVersion = parts.stream().map(String::valueOf).collect(Collectors.joining("."));
+    props['version'] = newVersion
+    props.store(propsFile.newWriter(), null)
 }
